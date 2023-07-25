@@ -14,7 +14,7 @@ const favoritesReducer = (state, action) => {
     case 'REMOVE_FAVORITE':
       return {
         ...state,
-        favorites: state.favorites.filter((pokemon) => pokemon.name !== action.payload),
+        favorites: state.favorites.filter((pokemon) => pokemon.id !== action.payload),
       };
     default:
       return state;
@@ -28,8 +28,8 @@ const FavoritesProvider = ({ children }) => {
     dispatch({ type: 'ADD_FAVORITE', payload: pokemon });
   };
 
-  const removeFavorite = (pokemonName) => {
-    dispatch({ type: 'REMOVE_FAVORITE', payload: pokemonName });
+  const removeFavorite = (pokemonId) => {
+    dispatch({ type: 'REMOVE_FAVORITE', payload: pokemonId });
   };
 
   return (
