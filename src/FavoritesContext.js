@@ -1,34 +1,35 @@
+// FavoritesContext.js
 import React, { createContext, useReducer } from 'react';
 
 const initialState = {
   favorites: [],
 };
 
-export const FavoritesContext = createContext();
+const FavoritesContext = createContext();
 
-const reducer = (state, action) => {
+const favoritesReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_FAVORITE':
       return { ...state, favorites: [...state.favorites, action.payload] };
     case 'REMOVE_FAVORITE':
       return {
         ...state,
-        favorites: state.favorites.filter((favorite) => favorite.name !== action.payload.name),
+        favorites: state.favorites.filter((pokemon) => pokemon.name !== action.payload),
       };
     default:
       return state;
   }
 };
 
-export const FavoritesProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const FavoritesProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(favoritesReducer, initialState);
 
   const addFavorite = (pokemon) => {
     dispatch({ type: 'ADD_FAVORITE', payload: pokemon });
   };
 
-  const removeFavorite = (pokemon) => {
-    dispatch({ type: 'REMOVE_FAVORITE', payload: pokemon });
+  const removeFavorite = (pokemonName) => {
+    dispatch({ type: 'REMOVE_FAVORITE', payload: pokemonName });
   };
 
   return (
@@ -37,6 +38,13 @@ export const FavoritesProvider = ({ children }) => {
     </FavoritesContext.Provider>
   );
 };
+
+export { FavoritesContext, FavoritesProvider };
+
+
+
+
+
 
 
 

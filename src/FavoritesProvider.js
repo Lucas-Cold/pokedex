@@ -17,7 +17,7 @@ const reducer = (state, action) => {
       };
     default:
       return state;
-  }
+  };
 };
 
 export const FavoritesProvider = ({ children }) => {
@@ -37,5 +37,6 @@ export const FavoritesProvider = ({ children }) => {
     </FavoritesContext.Provider>
   );
 };
+
 
 

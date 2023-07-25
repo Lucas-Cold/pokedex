@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { FavoritesProvider } from './FavoritesContext';
 import Pokdex from './Pokdex';
 import Favorites from './Favorites';
+import './styles.css';
 
 function App() {
   return (

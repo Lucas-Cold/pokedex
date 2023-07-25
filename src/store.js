@@ -1,7 +1,6 @@
-// store.js
 import { createStore } from 'redux';
-import rootReducer from './reducers';
+import favoritesReducer from './caminho/para/o/favoritesReducer';
 
-const store = createStore(rootReducer);
+const store = createStore(favoritesReducer);
 
 export default store;
