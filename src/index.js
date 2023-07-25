@@ -1,11 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Pokdex from './App';
-import './index.css';
+import { createRoot } from 'react-dom/client'; // Importe createRoot corretamente
+import App from './App';
 
-ReactDOM.render(
+const root = document.getElementById('root');
+const app = (
   <React.StrictMode>
-    <Pokdex />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App />
+  </React.StrictMode>
 );
+
+createRoot(root).render(app);
+
+
