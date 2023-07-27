@@ -1,17 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importe o componente Routes
-import Favorites from './Favorites';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { FavoritesProvider } from './FavoritesContext';
 import Pokdex from './Pokdex';
-import FavoritesProvider from './FavoritesContext';
+import Favorites from './Favorites';
 import './styles.css';
 
 function App() {
   return (
     <Router>
       <FavoritesProvider>
-        <Routes> {}
-          <Route path="/" element={<Pokdex />} /> {}
-          <Route path="/favorites" element={<Favorites />} /> {}
+        <Routes>
+          <Route path="/" element={<Pokdex />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </FavoritesProvider>
     </Router>
@@ -19,8 +19,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
